@@ -1,6 +1,7 @@
 import KeyChanger from '../utils/KeyChanger';
-import { MovieType, GenreType, FetchResponseType } from '../types';
+import { MovieType, GenreType, FetchResponseType, GenreAPIType } from '../types';
 import { API_URL, ERROR_MESSAGE, UNKNOWN_ERROR_MESSAGE } from '../constants';
+import CamelCaseAPIFetcher from './CamelCaseApiFetcher';
 
 const changingKeyPairs: Record<string, string> = {
   poster_path: 'posterPath',
@@ -15,6 +16,17 @@ class MovieFetcher {
   private requestMode: RequestModeType = 'popularity';
   private previousKeyword = '';
   private failedToFetch = false;
+  private camelCaseAPIFetcher = new CamelCaseAPIFetcher();
+
+  constructor() {
+    this.test();
+  }
+
+  async test() {
+    console.log('test start');
+    const myResult = await this.camelCaseAPIFetcher.fetch<GenreAPIType>(API_URL['genre']());
+    console.log('my result', myResult);
+  }
 
   resetPage() {
     this.currentPage = 1;

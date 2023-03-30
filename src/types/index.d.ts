@@ -16,6 +16,10 @@ type StorageMovieType = MovieType & {
   convertedGenres: string[];
 };
 
+type GenreAPIType = {
+  genres: GenreType[];
+};
+
 type GenreType = {
   id: number;
   name: string;
@@ -47,6 +51,7 @@ type ViewBundleType = {
 export {
   MovieType,
   StorageMovieType,
+  GenreAPIType,
   GenreType,
   MovieFetchResponseType,
   GenreFetchResponseType,
