@@ -9,7 +9,6 @@
     "strict": true,
     "noImplicitAny": true,
     "strictNullChecks": true,
-    "allowJs": true,
 
     "skipLibCheck": true,
     "plugins": [
